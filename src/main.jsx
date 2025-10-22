@@ -7,6 +7,8 @@ import Root from './Layouts/Home/Root.jsx';
 import Home from './Components/Common/Navbar/Home.jsx';
 import Plants from './Components/Common/Navbar/Plants.jsx';
 import MyProfile from './Components/Common/Navbar/MyProfile.jsx';
+import RegisterPage from './Components/RegisterPage/RegisterPage.jsx';
+import LoginPage from './Components/LoginPage/LoginPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
       {
         path: "profile",
         Component: MyProfile,
+      },
+      {
+        path: "login",
+        Component: LoginPage,
+      },
+      {
+        path: "register",
+        Component: RegisterPage,
       },
 
 
