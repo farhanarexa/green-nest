@@ -1,18 +1,14 @@
 import React from 'react';
+import Navbar from '../../Components/Common/Navbar/Navbar';
 import { Outlet } from 'react-router';
+import Footer from '../../Components/Common/Footer/Footer';
 
 const Root = () => {
     return (
         <div>
-
-            <header>
-                <nav className="flex gap-4">
-                    <a href="/">Home</a>
-                    <a href="/plants">Plants</a>
-                    <a href="/profile">My Profile</a>
-                </nav>
-            </header>
-            <Outlet></Outlet>
+            <Navbar />
+            <Outlet />
+            <Footer />
         </div>
     );
 };
