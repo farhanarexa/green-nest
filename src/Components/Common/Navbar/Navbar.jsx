@@ -4,6 +4,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import logo from '../../../assets/logoL.png';
 import { AuthContext } from '../../../provider/AuthProvider';
+import { FaSignInAlt, FaUserPlus } from 'react-icons/fa';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -13,7 +14,6 @@ const Navbar = () => {
     const handleLogout = () => {
         console.log('Attempting Logout');
         logOut() 
-        
             .then(() => {
                 console.log('Logout Successful');
                 toast.success('Logged out successfully!', {
@@ -43,8 +43,6 @@ const Navbar = () => {
 
     return (
         <div className="navbar bg-green-200 shadow-sm">
-          
-
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -85,7 +83,6 @@ const Navbar = () => {
                 </div>
             </div>
 
-
             <div className="navbar-center">
                 <Link to="/" className="flex items-center gap-2">
                     <span className="text-3xl">
@@ -96,7 +93,6 @@ const Navbar = () => {
                     </div>
                 </Link>
             </div>
-
 
             <div className="navbar-end">
                 {user ? (
@@ -122,18 +118,18 @@ const Navbar = () => {
                         </ul>
                     </div>
                 ) : (
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 sm:gap-3">
                         <Link
                             to="/login"
-                            className="rounded bg-green-300 px-5 py-2 font-bold text-green-700 border transition hover:-translate-y-0.5 hover:bg-green-400 hover:text-black"
+                            className="text-green-700 hover:bg-green-400 hover:text-black rounded-full p-2 sm:p-3 transition"
                         >
-                            Login
+                            <FaSignInAlt size={20} className="sm:h-6 sm:w-6" />
                         </Link>
                         <Link
                             to="/register"
-                            className="rounded bg-green-300 px-5 py-2 font-bold text-green-700 border transition hover:-translate-y-0.5 hover:bg-green-400 hover:text-black"
+                            className="text-green-700 hover:bg-green-400 hover:text-black rounded-full p-2 sm:p-3 transition"
                         >
-                            Register
+                            <FaUserPlus size={20} className="sm:h-6 sm:w-6" />
                         </Link>
                     </div>
                 )}
