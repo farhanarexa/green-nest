@@ -86,10 +86,10 @@ const Navbar = () => {
             <div className="navbar-center">
                 <Link to="/" className="flex items-center gap-2">
                     <span className="text-3xl">
-                        <img className="w-10 rounded-2xl" src={logo} alt="GreenNest Logo" />
+                        <img className="w-6 md:w-10 rounded-2xl" src={logo} alt="GreenNest Logo" />
                     </span>
                     <div>
-                        <span className="text-3xl font-bold text-green-700">GreenNest</span>
+                        <span className="sm:text-2xl lg:text-3xl font-bold text-green-700">GreenNest</span>
                     </div>
                 </Link>
             </div>
