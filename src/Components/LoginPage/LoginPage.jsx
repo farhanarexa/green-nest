@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { GoogleAuthProvider } from 'firebase/auth';
-import { BsGoogle } from 'react-icons/bs';
-import { Link, useNavigate } from 'react-router'; 
+import { BsGoogle, BsEye, BsEyeSlash } from 'react-icons/bs';
+import { Link, useNavigate } from 'react-router';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../provider/AuthProvider';
@@ -13,6 +13,7 @@ const LoginPage = () => {
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleGoogleSignIn = () => {
         setIsLoading(true);
@@ -143,25 +144,31 @@ const LoginPage = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className="relative">
                                 <label className="label text-green-700">
                                     <span className="label-text font-bold">Password</span>
                                 </label>
                                 <input
-                                    type="password"
+                                    type={showPassword ? 'text' : 'password'}
                                     name="password"
-                                    className="input input-bordered bg-green-100 border-green-300"
+                                    className="input input-bordered bg-green-100 border-green-300 w-full pr-10"
                                     required
                                     disabled={isLoading}
                                 />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link text-green-700 link-hover">
-                                        Forgot password?
-                                    </a>
-                                </label>
+                                <button
+                                    type="button"
+                                    className="absolute right-3 top-[62%] transform -translate-y-1/2 text-green-700 hover:text-green-900 z-10"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    disabled={isLoading}
+                                >
+                                    {showPassword ? <BsEyeSlash size={20} /> : <BsEye size={20} />}
+                                </button>
                             </div>
-
-
+                            <label className="label">
+                                <a href="#" className="label-text-alt link text-green-700 link-hover">
+                                    Forgot password?
+                                </a>
+                            </label>
                             <div className="form-control mt-6">
                                 <button
                                     type="submit"
@@ -176,7 +183,8 @@ const LoginPage = () => {
                                 type="button"
                                 onClick={handleGoogleSignIn}
                                 className="rounded border-2 px-5 py-2 font-bold text-green-700 transition hover:-translate-y-0.5 hover:bg-green-200 flex items-center gap-2 justify-center"
-                                disabled={isLoading}>
+                                disabled={isLoading}
+                            >
                                 <BsGoogle size={20} /> Sign in with Google
                             </button>
                             <p className="text-center mt-4">

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { GoogleAuthProvider } from 'firebase/auth';
-import { BsGoogle } from 'react-icons/bs';
+import { BsGoogle, BsEye, BsEyeSlash } from 'react-icons/bs';
 import { AuthContext } from '../../provider/AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +13,7 @@ const RegisterPage = () => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [passwordError, setPasswordError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const validatePassword = (password) => {
         if (password.length < 6) {
@@ -192,17 +193,25 @@ const RegisterPage = () => {
                             </div>
 
 
-                            <div>
+                            <div className='relative'>
                                 <label className="label text-green-700">
                                     <span className="label-text font-bold">Password</span>
                                 </label>
                                 <input
-                                    type="password"
+                                    type={showPassword ? 'text' : 'password'}
                                     name="password"
-                                    className="input input-bordered bg-green-100 border-green-300"
+                                    className="input input-bordered bg-green-100 border-green-300 w-full pr-10"
                                     required
                                     disabled={isLoading}
                                 />
+                                <button
+                                    type="button"
+                                    className="absolute right-3 top-[62%] transform -translate-y-1/2 text-green-700 hover:text-green-900 z-10"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    disabled={isLoading}
+                                >
+                                    {showPassword ? <BsEyeSlash size={20} /> : <BsEye size={20} />}
+                                </button>
                             </div>
                             <div className="form-control mt-6">
                                 <button
