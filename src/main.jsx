@@ -4,13 +4,13 @@ import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import Root from './Layouts/Home/Root.jsx';
-import Home from './Components/Common/Navbar/Home.jsx';
-import Plants from './Components/Common/Navbar/Plants.jsx';
-import MyProfile from './Components/Common/Navbar/MyProfile.jsx';
 import RegisterPage from './Components/RegisterPage/RegisterPage.jsx';
 import LoginPage from './Components/LoginPage/LoginPage.jsx';
 import AuthProvider from './provider/AuthProvider.jsx';
 import PlantDetails from './Components/PlantDetails/PlantDetails.jsx';
+import MyProfilePage from './Components/MyProfilePage/MyProfilePage.jsx';
+import PlantsPage from './Components/PlantsPage/PlantsPage.jsx';
+import HomePage from './Components/HomePage/HomePage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -19,15 +19,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        Component: Home,
+        Component: HomePage,
       },
       {
         path: "plants",
-        Component: Plants,
+        Component: PlantsPage,
       },
       {
         path: "profile",
-        Component: MyProfile,
+        Component: MyProfilePage,
       },
       {
         path: "login",

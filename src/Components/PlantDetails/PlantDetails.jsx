@@ -83,7 +83,6 @@ const PlantDetails = () => {
             </p>
           </div>
 
-          {/* Booking Form */}
           <div className="mt-6">
             <h3 className="text-xl font-bold mb-3">Book This Plant</h3>
             <form onSubmit={handleBookNow}>

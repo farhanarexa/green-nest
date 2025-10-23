@@ -10,7 +10,6 @@ const MyProfilePage = () => {
     const [photoURL, setPhotoURL] = useState(user?.photoURL || '');
     const [isLoading, setIsLoading] = useState(false);
 
-    // Update input fields with current user data when entering edit mode
     useEffect(() => {
         if (isEditing) {
             setName(user?.displayName || '');
