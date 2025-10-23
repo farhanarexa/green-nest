@@ -8,7 +8,8 @@ const HomePage = () => {
 
       <div
         className="flex flex-1 flex-col bg-cover bg-center p-8 text-white"
-        style={{ backgroundImage: `url(${bgImage})` }}>
+        style={{ backgroundImage: `url(${bgImage})`
+         }}>
 
 
         <div className="flex flex-1 items-center justify-center text-center">

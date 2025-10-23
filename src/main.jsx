@@ -9,15 +9,16 @@ import Plants from './Components/Common/Navbar/Plants.jsx';
 import MyProfile from './Components/Common/Navbar/MyProfile.jsx';
 import RegisterPage from './Components/RegisterPage/RegisterPage.jsx';
 import LoginPage from './Components/LoginPage/LoginPage.jsx';
+import AuthProvider from './provider/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: Root ,
+    Component: Root,
     children: [
       {
         path: "/",
-        Component: Home ,
+        Component: Home,
       },
       {
         path: "plants",
@@ -43,5 +44,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />  </StrictMode>,
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  </StrictMode>,
 )
