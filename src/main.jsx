@@ -10,6 +10,7 @@ import MyProfile from './Components/Common/Navbar/MyProfile.jsx';
 import RegisterPage from './Components/RegisterPage/RegisterPage.jsx';
 import LoginPage from './Components/LoginPage/LoginPage.jsx';
 import AuthProvider from './provider/AuthProvider.jsx';
+import PlantDetails from './Components/PlantDetails/PlantDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         Component: RegisterPage,
+      },
+      {
+        path: "plantdetails/:plantId",
+        Component: PlantDetails,
       },
 
 

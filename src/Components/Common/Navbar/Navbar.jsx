@@ -114,13 +114,7 @@ const Navbar = () => {
                             className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-white rounded-box w-52"
                         >
                             <li>
-                                <Link to="/profile" className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <a>Settings</a>
+                               <p className="font-bold text-black">{user.displayName ? user.displayName : user.email}</p>
                             </li>
                             <li>
                                 <button onClick={handleLogout}>Logout</button>
