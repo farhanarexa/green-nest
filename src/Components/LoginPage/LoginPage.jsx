@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { BsGoogle, BsEye, BsEyeSlash } from 'react-icons/bs';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate, useLocation } from 'react-router';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../provider/AuthProvider';
@@ -11,6 +11,7 @@ const googleProvider = new GoogleAuthProvider();
 const LoginPage = () => {
     const { signInWithGoogle, signInWithEmail, resetPassword } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
     const [errorMessage, setErrorMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
@@ -18,11 +19,15 @@ const LoginPage = () => {
     const [resetEmail, setResetEmail] = useState('');
     const [resetError, setResetError] = useState('');
 
+
+
+    const from = location.state?.from || '/plants';
+
     const handleGoogleSignIn = () => {
         setIsLoading(true);
         setErrorMessage('');
         signInWithGoogle(googleProvider)
-            .then(result => {
+            .then((result) => {
                 console.log('Google Sign-In Successful:', result.user);
                 toast.success('Logged in with Google successfully!', {
                     position: 'top-right',
@@ -36,11 +41,11 @@ const LoginPage = () => {
                     onOpen: () => console.log('Google login toast opened'),
                     onClose: () => {
                         console.log('Google login toast closed');
-                        navigate('/');
+                        navigate(from, { replace: true });
                     },
                 });
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error('Google Sign-In Error:', error.message);
                 setErrorMessage('Google login failed. Please try again.');
                 toast.error('Google login failed: ' + error.message, {
@@ -56,6 +61,7 @@ const LoginPage = () => {
             .finally(() => setIsLoading(false));
     };
 
+
     const handleEmailPasswordLogin = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -64,8 +70,9 @@ const LoginPage = () => {
         setErrorMessage('');
         setIsLoading(true);
 
+
         signInWithEmail(email, password)
-            .then(result => {
+            .then((result) => {
                 console.log('Email Login Successful:', result.user);
                 toast.success('Logged in successfully!', {
                     position: 'top-right',
@@ -79,11 +86,11 @@ const LoginPage = () => {
                     onOpen: () => console.log('Email login toast opened'),
                     onClose: () => {
                         console.log('Email login toast closed');
-                        navigate('/');
+                        navigate(from, { replace: true }); // Redirect to the intended page
                     },
                 });
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error('Email Login Error:', error.code, error.message);
                 let message = 'Login failed. Please check your email or password.';
                 if (error.code === 'auth/user-not-found') {
@@ -125,7 +132,7 @@ const LoginPage = () => {
                 setShowResetModal(false);
                 setResetEmail('');
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error('Password Reset Error:', error.code, error.message);
                 let message = 'Failed to send reset email. Please try again.';
                 if (error.code === 'auth/invalid-email') {
@@ -146,6 +153,8 @@ const LoginPage = () => {
             })
             .finally(() => setIsLoading(false));
     };
+
+
 
     return (
         <div className="hero min-h-screen bg-green-50">
@@ -242,7 +251,7 @@ const LoginPage = () => {
                 </div>
             </div>
 
-            {/* Password Reset Modal */}
+
             {showResetModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                     <div className="card w-full max-w-sm bg-white shadow-xl">

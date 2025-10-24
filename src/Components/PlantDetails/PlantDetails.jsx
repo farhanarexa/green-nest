@@ -1,12 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router';
+import React, { useEffect, useState, useContext } from 'react';
+import { useParams, useNavigate, useLocation } from 'react-router';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const PlantDetails = () => {
   const { plantId } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+  const { user } = useContext(AuthContext);
   const [plant, setPlant] = useState(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/login', { state: { from: `/plantdetails/${plantId}` } });
+    }
+  }, [user, navigate, plantId]);
+
 
   useEffect(() => {
     fetch('/plants.json')
@@ -21,6 +32,8 @@ const PlantDetails = () => {
       })
       .catch(() => navigate('/plants'));
   }, [plantId, navigate]);
+
+
 
   const handleBookNow = (e) => {
     e.preventDefault();
@@ -45,6 +58,8 @@ const PlantDetails = () => {
     );
   }
 
+
+
   return (
     <div className="container mx-auto my-12 px-4">
       <button onClick={() => navigate(-1)} className="btn btn-ghost mb-6">
@@ -62,11 +77,12 @@ const PlantDetails = () => {
           </div>
         </div>
 
+
         <div className="w-full lg:w-1/2 text-center lg:text-left">
-         <div>
-             <h2 className="font-bold text-center lg:text-left text-5xl text-green-800">{plant.plantName}</h2>
-          <p className="text-sm text-green-700 font-bold mt-1"><span className="font-medium">Provider:</span> {plant.providerName}</p>
-         </div>
+          <div>
+            <h2 className="font-bold text-center lg:text-left text-5xl text-green-800">{plant.plantName}</h2>
+            <p className="text-sm text-green-700 font-bold mt-1"><span className="font-medium">Provider:</span> {plant.providerName}</p>
+          </div>
           <p className="text-lg text-green-800 mt-6">{plant.description}</p>
 
           <div className="mt-4 space-y-2 text-left inline-block lg:w-full">
@@ -99,6 +115,8 @@ const PlantDetails = () => {
                   required
                 />
               </div>
+
+
               <div className="form-control mb-4">
                 <label className="label justify-center lg:justify-start">
                   <span className="label-text">Email</span>
@@ -112,6 +130,8 @@ const PlantDetails = () => {
                   required
                 />
               </div>
+
+              
               <button
                 type="submit"
                 className={`btn btn-primary w-full ${plant.availableStock <= 0 ? 'btn-disabled' : ''}`}
