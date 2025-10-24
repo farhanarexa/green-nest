@@ -22,16 +22,16 @@ const PlantOfTheWeek = () => {
 
   return (
     <div className="py-12 bg-white">
-      <h2 className="text-3xl font-bold text-center text-green-700 mb-8">Plant of the Week</h2>
+      <h2 className="text-4xl font-bold text-center text-green-700 mb-8">Plant of the Week</h2>
       <div className="max-w-4xl mx-auto px-4">
         <div className="card bg-green-100 shadow-xl flex flex-col md:flex-row">
           <figure className="md:w-1/2 p-6">
-            <img src={plant.image} alt={plant.plantName} className="rounded-xl h-64 w-full object-cover" />
+            <img src={plant.image} alt={plant.plantName} className="rounded-xl h-64 w-full object-cover border-5 border-green-200" />
           </figure>
           <div className="card-body md:w-1/2 text-center md:text-left">
-            <h3 className="card-title text-green-700 text-2xl">{plant.plantName}</h3>
-            <p className="text-gray-600 text-lg mt-2">${plant.price.toFixed(2)}</p>
-            <p className="text-yellow-500 mt-2">Rating: {plant.rating} ★</p>
+            <h3 className="card-title text-green-700 text-3xl font-bold">{plant.plantName}</h3>
+            <p className="text-green-800 text-xl mt-2 font-black">${plant.price.toFixed(2)}</p>
+            <p className="text-green-700 mt-2 text-base">Rating: {plant.rating} ★</p>
             <div className="card-actions justify-center md:justify-start mt-4">
               <Link to={`/plantdetails/${plant.plantId}`}>
                 <button className="rounded bg-green-300 px-6 py-3 font-bold text-green-700 transition hover:-translate-y-0.5 hover:bg-green-400 hover:text-black">
