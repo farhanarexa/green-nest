@@ -19,8 +19,6 @@ const LoginPage = () => {
     const [resetEmail, setResetEmail] = useState('');
     const [resetError, setResetError] = useState('');
 
-
-
     const from = location.state?.from || '/plants';
 
     const handleGoogleSignIn = () => {
@@ -61,7 +59,6 @@ const LoginPage = () => {
             .finally(() => setIsLoading(false));
     };
 
-
     const handleEmailPasswordLogin = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -69,7 +66,6 @@ const LoginPage = () => {
         const password = form.password.value;
         setErrorMessage('');
         setIsLoading(true);
-
 
         signInWithEmail(email, password)
             .then((result) => {
@@ -86,7 +82,7 @@ const LoginPage = () => {
                     onOpen: () => console.log('Email login toast opened'),
                     onClose: () => {
                         console.log('Email login toast closed');
-                        navigate(from, { replace: true }); // Redirect to the intended page
+                        navigate(from, { replace: true });
                     },
                 });
             })
@@ -154,8 +150,6 @@ const LoginPage = () => {
             .finally(() => setIsLoading(false));
     };
 
-
-
     return (
         <div className="hero min-h-screen bg-green-50">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -212,6 +206,7 @@ const LoginPage = () => {
                                     {showPassword ? <BsEyeSlash size={20} /> : <BsEye size={20} />}
                                 </button>
                             </div>
+                            
                             <label className="label">
                                 <button
                                     type="button"
@@ -250,7 +245,6 @@ const LoginPage = () => {
                     </form>
                 </div>
             </div>
-
 
             {showResetModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">

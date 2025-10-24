@@ -1,23 +1,23 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PlantDetails = () => {
   const { plantId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const [plant, setPlant] = useState(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
-
   useEffect(() => {
-    if (!user) {
+    if (!loading && !user) {
       navigate('/login', { state: { from: `/plantdetails/${plantId}` } });
     }
-  }, [user, navigate, plantId]);
-
+  }, [loading, user, navigate, plantId]);
 
   useEffect(() => {
     fetch('/plants.json')
@@ -33,22 +33,56 @@ const PlantDetails = () => {
       .catch(() => navigate('/plants'));
   }, [plantId, navigate]);
 
-
-
   const handleBookNow = (e) => {
     e.preventDefault();
     if (!name || !email) {
-      alert('Please fill in your name and email.');
+      toast.error('Please fill in your name and email.', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'light',
+        toastId: 'booking-error-empty',
+      });
       return;
     }
+
     if (plant.availableStock <= 0) {
-      alert('Sorry, this plant is currently out of stock.');
+      toast.error('Sorry, this plant is currently out of stock.', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'light',
+        toastId: 'booking-error-stock',
+      });
       return;
     }
-    alert(`Booking confirmed for ${plant.plantName}!\nThank you, ${name}!`);
+    toast.success(`Booking confirmed for ${plant.plantName}! Thank you, ${name}!`, {
+      position: 'top-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'light',
+      toastId: 'booking-success',
+    });
     setName('');
     setEmail('');
   };
+
+  if (loading) {
+    return (
+      <div className="container mx-auto my-12 text-center">
+        <p>Checking authentication...</p>
+      </div>
+    );
+  }
 
   if (!plant) {
     return (
@@ -57,8 +91,6 @@ const PlantDetails = () => {
       </div>
     );
   }
-
-
 
   return (
     <div className="container mx-auto my-12 px-5">
@@ -76,7 +108,6 @@ const PlantDetails = () => {
             />
           </div>
         </div>
-
 
         <div className="w-full lg:w-1/2 text-center lg:text-left">
           <div>
@@ -104,7 +135,7 @@ const PlantDetails = () => {
             </div>
           </div>
 
-          <div className="mt-5 border-5 rounded-4xl border-green-300 p-5 bg-green-50">
+          <div className="mt-5 border-4 rounded-2xl border-green-300 p-5 bg-green-50">
             <h3 className="text-3xl font-bold mb-5 text-green-700 ">Book This Plant</h3>
             <form onSubmit={handleBookNow}>
               <div className="space-x-3 mb-3">
@@ -120,20 +151,18 @@ const PlantDetails = () => {
                 />
               </div>
 
-
               <div className="space-x-3 mb-4">
                 <label className="label justify-center lg:justify-start">
                   <span className="label-text">Your Email</span>
                 </label>
                 <input
                   type="email"
-                  className="input input-bordered w-full max-w-xs lg:max-w-none mx-auto  bg-green-300 lg:mx-0"
+                  className="input input-bordered w-full max-w-xs lg:max-w-none mx-auto bg-green-300 lg:mx-0"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
-
 
               <button
                 type="submit"
@@ -146,6 +175,20 @@ const PlantDetails = () => {
           </div>
         </div>
       </div>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        style={{ zIndex: 9999 }}
+      />
     </div>
   );
 };
