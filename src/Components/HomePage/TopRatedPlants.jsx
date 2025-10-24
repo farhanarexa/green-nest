@@ -41,6 +41,10 @@ const TopRatedPlants = () => {
           </div>
         ))}
       </div>
+
+      <Link to={"/plants"}>
+      <button className="rounded bg-green-300 px-5 py-2 font-bold text-green-700 transition hover:-translate-y-0.5 hover:bg-green-400 hover:text-black block m-auto mt-7">See All Plants</button>
+      </Link>
     </div>
   );
 };
