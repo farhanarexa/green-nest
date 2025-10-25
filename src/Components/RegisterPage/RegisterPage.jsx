@@ -145,12 +145,10 @@ const RegisterPage = () => {
 
     return (
         <div className="hero min-h-screen bg-green-50">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="hero-content flex-col ">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold text-green-700">Register now!</h1>
-                    <p className="py-6">
-                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
-                    </p>
+                    <h1 className="text-5xl font-bold text-green-700 text-center">Register now!</h1>
+                    <p className="pt-3 pb-6 text-green-700 text-xl">Join Green Nest: Register to Start Your Plant Care Journey!</p>
                 </div>
 
                 <div className="card w-full max-w-sm shadow-2xl bg-white">
@@ -169,7 +167,7 @@ const RegisterPage = () => {
                                 <input
                                     type="text"
                                     name="name"
-                                    className="input input-bordered bg-green-100 border-green-300"
+                                    className="input input-bordered bg-green-100 border-green-300 w-full"
                                     required
                                     disabled={isLoading}
                                 />
@@ -182,7 +180,7 @@ const RegisterPage = () => {
                                 <input
                                     type="email"
                                     name="email"
-                                    className="input input-bordered bg-green-100 border-green-300"
+                                    className="input input-bordered bg-green-100  w-full border-green-300"
                                     required
                                     disabled={isLoading}
                                 />
@@ -196,7 +194,7 @@ const RegisterPage = () => {
                                 <input
                                     type="text"
                                     name="photo"
-                                    className="input input-bordered bg-green-100 border-green-300"
+                                    className="input input-bordered bg-green-100  w-full border-green-300"
                                     disabled={isLoading}
                                 />
                             </div>

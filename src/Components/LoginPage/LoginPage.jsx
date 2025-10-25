@@ -152,11 +152,11 @@ const LoginPage = () => {
 
     return (
         <div className="hero min-h-screen bg-green-50">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold text-green-700">Login now!</h1>
-                    <p className="py-6">
-                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+                    <h1 className="text-5xl font-bold text-center  text-green-700">Login now!</h1>
+                    <p className="pt-3 pb-6 text-green-700 text-xl">
+                        Grow with Green Nest: Sign In to Nurture Your Plants!
                     </p>
                 </div>
                 <div className="card w-full max-w-sm shadow-2xl bg-white">
@@ -180,7 +180,7 @@ const LoginPage = () => {
                                 <input
                                     type="email"
                                     name="email"
-                                    className="input input-bordered bg-green-100 border-green-300"
+                                    className="input input-bordered bg-green-100 w-full border-green-300"
                                     required
                                     disabled={isLoading}
                                 />
@@ -238,7 +238,7 @@ const LoginPage = () => {
                             <p className="text-center mt-4">
                                 Don't have an account?{' '}
                                 <Link className="text-green-700 font-bold underline" to="/register">
-                                    Sign up
+                                    Register
                                 </Link>
                             </p>
                         </div>

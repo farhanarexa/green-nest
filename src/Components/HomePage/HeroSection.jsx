@@ -43,7 +43,14 @@ const HeroSection = () => {
               className="flex items-center justify-center text-center bg-cover bg-center h-full w-full"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
-              <h1 className="text-3xl font-semibold w-full max-w-3xl text-white drop-shadow-md md:text-5xl px-8">
+              {/* <h1 className="text-3xl font-semibold w-full max-w-3xl text-white drop-shadow-md md:text-5xl px-8">
+                {slide.slogan}
+              </h1> */}
+
+              <h1
+                className="text-3xl font-semibold w-full max-w-3xl text-white drop-shadow-md md:text-5xl px-8 py-5 rounded-lg"
+                style={{ backgroundColor: 'rgba(0, 128, 0, 0.6)' }} // Green background with low opacity
+              >
                 {slide.slogan}
               </h1>
             </div>
@@ -54,7 +61,7 @@ const HeroSection = () => {
     </div>
   );
 
-  
+
 };
 
 export default HeroSection;
