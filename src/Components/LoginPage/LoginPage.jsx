@@ -19,7 +19,7 @@ const LoginPage = () => {
     const [resetEmail, setResetEmail] = useState('');
     const [resetError, setResetError] = useState('');
 
-    const from = location.state?.from || '/plants';
+    const from = location.state?.from || '/';
 
     const handleGoogleSignIn = () => {
         setIsLoading(true);
