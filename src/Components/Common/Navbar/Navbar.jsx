@@ -71,9 +71,7 @@ const Navbar = () => {
                         <li className="hover:-translate-y-0.5 hover:bg-green-400 hover:font-bold">
                             <Link to="/plants">Plants</Link>
                         </li>
-                        <li className="hover:-translate-y-0.5 hover:bg-green-400 hover:font-bold">
-                            <Link to="/about">About</Link>
-                        </li>
+                        
                         {user && (
                             <li className="hover:-translate-y-0.5 hover:bg-green-400 hover:font-bold">
                                 <Link to="/profile">My Profile</Link>

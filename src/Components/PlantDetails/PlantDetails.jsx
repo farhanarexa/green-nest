@@ -3,11 +3,12 @@ import { useParams, useNavigate, useLocation } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import spinner from '../../assets/logoL.png';
 
 const PlantDetails = () => {
   const { plantId } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
+  useLocation();
   const { user, loading } = useContext(AuthContext);
   const [plant, setPlant] = useState(null);
   const [name, setName] = useState('');
@@ -86,8 +87,11 @@ const PlantDetails = () => {
 
   if (!plant) {
     return (
-      <div className="container mx-auto my-12 text-center">
-        <p>Loading plant details...</p>
+      <div className="container mx-auto my-12 flex items-center justify-center min-h-[200px]">
+        <div className="relative">
+          <img src={spinner} alt="spinner" className="inline-block w-48" />
+          <div className="ripple"></div>
+        </div>
       </div>
     );
   }

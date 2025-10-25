@@ -11,10 +11,12 @@ import PlantDetails from './Components/PlantDetails/PlantDetails.jsx';
 import MyProfilePage from './Components/MyProfilePage/MyProfilePage.jsx';
 import PlantsPage from './Components/PlantsPage/PlantsPage.jsx';
 import HomePage from './Components/HomePage/HomePage.jsx';
+import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage />,
     Component: Root,
     children: [
       {
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
         path: "plantdetails/:plantId",
         Component: PlantDetails,
       },
+      // {
+      //   path: "*",
+      //   Component: ErrorPage,
+      // },
 
 
     ],

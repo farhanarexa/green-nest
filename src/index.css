@@ -14,3 +14,30 @@
   /* font-family: "Ubuntu", sans-serif; */
 
 }
+
+/* Ripple animation for loading spinner */
+.ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 100%;
+  background: rgba(60, 141, 51, 0.3); /* Adjust color to match your theme */
+  transform: translate(-50%, -50%);
+  animation: ripple 1.2s infinite ease-out;
+  pointer-events: none; /* Ensures it doesn't block clicks */
+}
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.7;
+  }
+  100% {
+    width: 900px;
+    height: 900px;
+    opacity: 0;
+  }
+}

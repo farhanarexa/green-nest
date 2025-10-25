@@ -14,32 +14,6 @@ const Footer = () => {
         <p className="font-bold text-3xl sm:text-4xl lg:text-5xl">GreenNest</p>
         <p><small>- Indoor Plant Care & Store</small></p>
       </div>
-
-      {/* <nav>
-        <h6 className="footer-title text-lg sm:text-xl font-bold">Quick Links</h6>
-        <Link to="/about" className="link link-hover text-base sm:text-lg">About</Link>
-        <Link to="/contact" className="link link-hover text-base sm:text-lg">Contact</Link>
-        <Link to="/privacy-policy" className="link link-hover text-base sm:text-lg">Privacy Policy</Link>
-      </nav>
-
-      <nav>
-        <h6 className="footer-title text-lg sm:text-xl font-bold">Follow Us</h6>
-        <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-5">
-
-          
-
-         
-          <a href="https://www.facebook.com/"><FaFacebookF size={25}/></a>
-          <a href="https://www.instagram.com/"><FaInstagram size={25}/></a>
-          <a href="https://www.pinterest.com/"><FaPinterestP size={25}/></a>
-          <a href="https://x.com/"><FaXTwitter size={25}/></a>
-          <a href="https://www.linkedin.com/"><FaLinkedinIn size={25}/></a>
-        </div>
-      </nav>
-
-      <nav className="text-center sm:text-right mt-8 sm:mt-0 w-full sm:w-auto">
-        <p>© 2025 GreenNest. All rights reserved.</p>
-      </nav> */}
       <nav className="flex flex-col items-center sm:items-start w-full sm:w-auto">
         <h6 className="footer-title text-lg sm:text-xl font-bold">Quick Links</h6>
         <Link to="/about" className="link link-hover text-base sm:text-lg">About</Link>
