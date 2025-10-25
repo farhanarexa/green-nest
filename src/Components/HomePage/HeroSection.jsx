@@ -4,9 +4,9 @@ import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
-import bgImage1 from '../../assets/bg3.jpg';
-import bgImage2 from '../../assets/bg4.jpg';
-import bgImage3 from '../../assets/bg1.jpg';
+import bgImage1 from '../../assets/hero1.jpeg';
+import bgImage2 from '../../assets/hero3.jpeg';
+import bgImage3 from '../../assets/hero2.jpeg';
 
 const HeroSection = () => {
   const slides = [
