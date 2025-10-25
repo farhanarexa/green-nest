@@ -50,6 +50,8 @@ const PlantDetails = () => {
       return;
     }
 
+
+
     if (plant.availableStock <= 0) {
       toast.error('Sorry, this plant is currently out of stock.', {
         position: 'top-right',
@@ -96,13 +98,14 @@ const PlantDetails = () => {
     );
   }
 
+
   return (
     <div className="container mx-auto my-12 px-5">
       <button onClick={() => navigate(-1)} className="rounded bg-green-200 mt-4 px-4 sm:px-5 py-2 font-bold text-green-700 transition hover:-translate-y-0.5 hover:bg-green-300 hover:text-black text-sm sm:text-base  mb-6">
         ← Back to Previous
       </button>
 
-      <div className="flex flex-col lg:flex-row gap-8 bg-green-50 shadow-xl rounded-box p-6">
+      <div className="flex flex-col lg:flex-row  gap-8 bg-green-50 shadow-xl rounded-box p-6">
         <div className="flex justify-center lg:block w-full lg:w-auto">
           <div className="p-4 bg-white rounded-lg shadow-sm">
             <img
@@ -115,7 +118,7 @@ const PlantDetails = () => {
 
         <div className="w-full lg:w-1/2 text-center lg:text-left">
           <div>
-            <h2 className="font-bold text-center lg:text-left text-5xl text-green-800">{plant.plantName}</h2>
+            <h2 className="font-bold text-center   lg:text-left text-5xl text-green-800">{plant.plantName}</h2>
             <p className="text-sm text-green-700 font-bold mt-1"><span className="font-medium">Provider:</span> {plant.providerName}</p>
           </div>
           <p className="text-lg text-green-800 mt-6">{plant.description}</p>
@@ -128,16 +131,18 @@ const PlantDetails = () => {
 
             <div className='text-green-700 flex justify-around border border-green-400 p-2 rounded-full'>
               <p><span className="font-bold">Category:</span> {plant.category}</p>
-              <p><span className="font-bold">Care Level:</span> {plant.careLevel}</p>
+              <p><span className=" font-bold">Care Level:</span> {plant.careLevel} </p>
 
               <p>
                 <span className="font-bold">Available Stock:</span>{' '}
                 <span className={plant.availableStock > 0 ? 'text-green-600' : 'text-red-600'}>
                   {plant.availableStock > 0 ? plant.availableStock : 'Out of Stock'}
+                
                 </span>
               </p>
             </div>
           </div>
+
 
           <div className="mt-5 border-4 rounded-2xl border-green-300 p-5 bg-green-50">
             <h3 className="text-3xl font-bold mb-5 text-green-700 ">Book This Plant</h3>
@@ -168,6 +173,7 @@ const PlantDetails = () => {
                 />
               </div>
 
+
               <button
                 type="submit"
                 className={`rounded bg-green-300 mt-4 px-4 sm:px-5 py-2 font-bold text-green-700 border transition hover:-translate-y-0.5 hover:bg-green-400 hover:text-black text-sm sm:text-base ${plant.availableStock <= 0 ? 'btn-disabled' : ''}`}
@@ -175,6 +181,8 @@ const PlantDetails = () => {
               >
                 {plant.availableStock > 0 ? 'Book Now' : 'Out of Stock'}
               </button>
+
+
             </form>
           </div>
         </div>

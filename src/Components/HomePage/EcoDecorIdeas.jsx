@@ -37,6 +37,7 @@ const EcoDecorIdeas = () => {
             </div>
           </div>
         ))}
+        
       </div>
     </div>
   );

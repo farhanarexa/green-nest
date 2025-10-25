@@ -99,7 +99,7 @@ const RegisterPage = () => {
             .then(result => {
                 const user = result.user;
                 console.log('Register Successful:', user);
-                setUser(user);
+                setUser(user)
                 toast.success('Registration successful!', {
                     position: 'top-right',
                     autoClose: 3000,

@@ -35,17 +35,22 @@ const MeetOurExperts = () => {
         {experts.map(expert => (
           <div key={expert.id} className="card bg-white shadow-xl">
             <figure className="px-4 pt-4">
-              <img src={expert.image} alt={expert.name} className="rounded-full h-50 w-50 object-cover" />
+              <img src={expert.image} alt={expert.name} className="rounded-full  h-50 w-50 object-cover" />
             </figure>
+
             <div className="card-body text-center">
-              <h3 className="text-green-700 text-xl font-semibold">{expert.name}</h3>
-              <p className="text-green-500"><span className='font-bold'>Specialization:</span> {expert.specialization}</p>
+              <h3 className="text-green-700  text-xl font-semibold">{expert.name}</h3>
+              <p className="text-green-500"><span className='font-bold'>Specialization:</span> {expert.specialization} </p>
             </div>
+
           </div>
         ))}
       </div>
     </div>
   );
-};
+};   
+
 
 export default MeetOurExperts;
+
+

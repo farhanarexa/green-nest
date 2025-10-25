@@ -6,9 +6,9 @@ import { RiLeafFill } from 'react-icons/ri';
 
 const MyProfilePage = () => {
     const { user, updateUserProfile } = useContext(AuthContext);
-    const [isEditing, setIsEditing] = useState(false);
-    const [name, setName] = useState(user?.displayName || '');
-    const [photoURL, setPhotoURL] = useState(user?.photoURL || '');
+    const [isEditing, setIsEditing] = useState(false)
+    const [name, setName] = useState(user?.displayName || '')
+    const [photoURL, setPhotoURL] = useState(user?.photoURL || '')
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -16,6 +16,7 @@ const MyProfilePage = () => {
             setName(user?.displayName || '');
             setPhotoURL(user?.photoURL || '');
         }
+
     }, [isEditing, user]);
 
     const handleUpdateProfile = (e) => {
@@ -50,6 +51,7 @@ const MyProfilePage = () => {
     };
 
     return (
+
         <div className="container mx-auto my-6 sm:my-8 lg:my-12 px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">My Profile</h2>
             <div className="card w-full sm:w-96 bg-green-100 shadow-xl mx-auto">
@@ -62,10 +64,10 @@ const MyProfilePage = () => {
                 </figure>
                 <div className="card-body items-center text-center space-y-4">
                     {isEditing ? (
-                        <form onSubmit={handleUpdateProfile} className="w-full space-y-4">
+                        <form onSubmit={handleUpdateProfile} className="w-full space-y-4" >
                             <div className="text-left">
                                 <label className="label">
-                                    <span className=" text-sm sm:text-base">Name</span>
+                                    <span className=" text-sm  sm:text-base">Name</span>
                                 </label>
                                 <input
                                     type="text"
@@ -89,9 +91,8 @@ const MyProfilePage = () => {
                                 />
                             </div>
                             <div className="card-actions justify-center space-x-2 mt-7">
-                                <button
-                                    type="submit"
-                                    className="rounded bg-green-300 px-4 sm:px-5 py-2 font-bold text-green-700 border transition hover:-translate-y-0.5 hover:bg-green-400 hover:text-black text-sm sm:text-base"
+                                <button type="submit"
+                                    className="rounded bg-green-300 px-4 sm:px-5 py-2 font-bold text-green-700 border transition hover:-translate-y-0.5 hover:bg-green-400 hover:text-black   text-sm sm:text-base"
                                     disabled={isLoading}
                                 >
                                     {isLoading ? 'Updating...' : (
@@ -148,3 +149,4 @@ const MyProfilePage = () => {
 };
 
 export default MyProfilePage;
+

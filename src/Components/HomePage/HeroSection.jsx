@@ -50,8 +50,11 @@ const HeroSection = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+
     </div>
   );
+
+  
 };
 
 export default HeroSection;

@@ -6,6 +6,8 @@ import logo from '../../../assets/logoL.png';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { FaSignInAlt, FaUserPlus } from 'react-icons/fa';
 
+
+
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
@@ -81,6 +83,7 @@ const Navbar = () => {
                 </div>
             </div>
 
+
             <div className="navbar-center">
                 <Link to="/" className="flex items-center gap-2">
                     <span className="text-3xl">
@@ -92,22 +95,19 @@ const Navbar = () => {
                 </Link>
             </div>
 
-            <div className="navbar-end">
+            <div className="navbar-end" >
                 {user ? (
-                    <div className="dropdown dropdown-end">
+                    <div className="dropdown  dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <img
-                                    src={user.photoURL || 'https://i.pravatar.cc/150?u=a042581f4e29026704d'}
-                                    alt="Profile"
-                                />
+                                <img src={user.photoURL || 'https://i.pravatar.cc/150?u=a042581f4e29026704d'} alt="Profile" />
                             </div>
                         </label>
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-white rounded-box w-52"
                         >
-                            <li>
+                            <li >
                                <p className="font-bold text-black">{user.displayName ? user.displayName : user.email}</p>
                             </li>
                             <li>
@@ -116,7 +116,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                 ) : (
-                    <div className="flex gap-2 sm:gap-3">
+                    <div className="flex gap-2 sm:gap-3" >
                         <Link
                             to="/login"
                             className="text-green-700 hover:bg-green-400 hover:text-black rounded-full p-2 sm:p-3 transition"
@@ -127,11 +127,12 @@ const Navbar = () => {
                             to="/register"
                             className="text-green-700 hover:bg-green-400 hover:text-black rounded-full p-2 sm:p-3 transition"
                         >
-                            <FaUserPlus size={20} className="sm:h-6 sm:w-6" />
+                            <FaUserPlus size={20} className="sm:h-6  sm:w-6" />
                         </Link>
                     </div>
                 )}
             </div>
+
             <ToastContainer
                 position="top-right"
                 autoClose={3000}
@@ -145,8 +146,10 @@ const Navbar = () => {
                 theme="light"
                 style={{ zIndex: 9999 }}
             />
+
         </div>
     );
 };
 
 export default Navbar;
+
