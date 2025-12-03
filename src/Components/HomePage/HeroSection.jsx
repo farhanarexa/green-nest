@@ -4,9 +4,9 @@ import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
-import bgImage1 from '../../assets/hero1.jpeg';
-import bgImage2 from '../../assets/hero3.jpeg';
-import bgImage3 from '../../assets/hero2.jpeg';
+import bgImage1 from '../../assets/hero7.avif';
+import bgImage2 from '../../assets/hero6.jpg';
+import bgImage3 from '../../assets/hero5.jpg';
 
 const HeroSection = () => {
   const slides = [
@@ -25,7 +25,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <div className="flex flex-col w-full h-[80vh] text-white">
+    <div className="flex flex-col w-full h-[80vh]  text-white">
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
         spaceBetween={0}
@@ -43,16 +43,13 @@ const HeroSection = () => {
               className="flex items-center justify-center text-center bg-cover bg-center h-full w-full"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
-              {/* <h1 className="text-3xl font-semibold w-full max-w-3xl text-white drop-shadow-md md:text-5xl px-8">
-                {slide.slogan}
-              </h1> */}
+              <div className="absolute inset-0 bg-green-900 opacity-70"></div>
 
-              <h1
-                className="text-3xl font-semibold w-full max-w-3xl text-white drop-shadow-md md:text-5xl px-8 py-5 rounded-lg"
-                style={{ backgroundColor: 'rgba(0, 128, 0, 0.6)' }} // Green background with low opacity
-              >
-                {slide.slogan}
-              </h1>
+              <div className="relative z-10 flex items-center justify-center h-full w-full">
+                <h1 className="text-3xl font-semibold w-full max-w-3xl text-white drop-shadow-md md:text-5xl px-8">
+                  {slide.slogan}
+                </h1>
+              </div>
             </div>
           </SwiperSlide>
         ))}
