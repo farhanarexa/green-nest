@@ -71,7 +71,7 @@ const Navbar = () => {
                             <Link to="/">Home</Link>
                         </li>
                         <li className="hover:-translate-y-0.5 hover:bg-green-400 hover:font-bold">
-                            <Link to="/plants">Plants</Link>
+                            <Link to="/plants">All Plants</Link>
                         </li>
 
                         {user && (

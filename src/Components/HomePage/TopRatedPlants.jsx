@@ -30,7 +30,7 @@ const TopRatedPlants = () => {
         slidesPerView={1}
         spaceBetween={32}
         autoplay={{
-          delay: 2500,
+          delay: 3000,
           disableOnInteraction: false
         }}
         breakpoints={{
@@ -49,16 +49,16 @@ const TopRatedPlants = () => {
           plants.map(plant => (
             <SwiperSlide key={plant.plantId}>
               <div className="card bg-white shadow-xl flex flex-col justify-between">
-                <figure className="px-4 pt-4 flex-shrink-0">
+                <figure className="px-4 pt-4 shrink-0">
                   <img
                     src={plant.image}
                     alt={plant.plantName}
                     className="rounded-xl h-80 w-full object-cover"
                   />
                 </figure>
-                <div className="card-body text-center flex-grow p-5">
+                <div className="card-body text-center grow p-5">
                   <h2 className="card-title text-2xl text-green-800 block m-auto">{plant.plantName}</h2>
-                  <div className="text-base text-green-700 text-center flex-grow flex flex-col justify-center">
+                  <div className="text-base text-green-700 text-center grow flex flex-col justify-center">
                     <p>Price: ${plant.price}</p>
                     <p>Rating: {plant.rating}</p>
                   </div>
