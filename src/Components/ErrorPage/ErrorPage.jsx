@@ -9,7 +9,7 @@ const ErrorPage = () => {
 
 
     return (
-        <div className="container mx-auto my-10 p-5 bg-green-50 min-h-screen flex flex-col justify-center items-center">
+        <div className="container mx-auto my-10 p-5 min-h-screen flex flex-col justify-center items-center">
             <div className="text-center">
                 <img className="h-64 w-64 object-cover rounded-4xl mx-auto mb-8" src={sadplant} alt="Wilted Plant" />
                 <h2 className="text-5xl font-bold text-green-700 mb-4">Oops! Something Went Wrong</h2>

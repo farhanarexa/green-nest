@@ -15,7 +15,7 @@ const Navbar = () => {
 
     const handleLogout = () => {
         console.log('Attempting Logout');
-        logOut() 
+        logOut()
             .then(() => {
                 console.log('Logout Successful');
                 toast.success('Logged out successfully!', {
@@ -44,7 +44,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="navbar bg-green-200 shadow-sm">
+        <div className="navbar bg-green-200 px-20 shadow-sm sticky top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -73,7 +73,7 @@ const Navbar = () => {
                         <li className="hover:-translate-y-0.5 hover:bg-green-400 hover:font-bold">
                             <Link to="/plants">Plants</Link>
                         </li>
-                        
+
                         {user && (
                             <li className="hover:-translate-y-0.5 hover:bg-green-400 hover:font-bold">
                                 <Link to="/profile">My Profile</Link>
@@ -100,7 +100,13 @@ const Navbar = () => {
                     <div className="dropdown  dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <img src={user.photoURL || 'https://i.pravatar.cc/150?u=a042581f4e29026704d'} alt="Profile" />
+                                <img
+                                    src={
+                                        user.photoURL
+                                            ? user.photoURL
+                                            : user.email
+                                                ? `https://i.pravatar.cc/150?u=${encodeURIComponent(user.email)}`
+                                                : 'https://i.pravatar.cc/150?u=default'} alt="Profile" />
                             </div>
                         </label>
                         <ul
@@ -108,7 +114,7 @@ const Navbar = () => {
                             className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-white rounded-box w-52"
                         >
                             <li >
-                               <p className="font-bold text-black">{user.displayName ? user.displayName : user.email}</p>
+                                <p className="font-bold text-black">{user.displayName ? user.displayName : user.email}</p>
                             </li>
                             <li>
                                 <button onClick={handleLogout}>Logout</button>

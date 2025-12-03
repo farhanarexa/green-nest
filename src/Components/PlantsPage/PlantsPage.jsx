@@ -31,12 +31,14 @@ const PlantsPage = () => {
   }
 
   return (
-    <div className="container mx-auto my-10 p-5 bg-green-50">
+    <div className="container mx-auto my-10 p-5 ">
       <h2 className="text-5xl font-bold text-center text-green-700 mb-8">Our Plants</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {plants.length > 0 ? (
           plants.map(plant => (
-            <div key={plant.plantId} className="card shadow-xl rounded-4xl bg-white">
+            <div key={plant.plantId} className="card bg-white shadow-lg shadow-green-800/40 rounded-4xl overflow-hidden transition-all duration-300 ease-in-out
+             hover:shadow-2xl hover:shadow-green-800 hover:-translate-y-2 hover:scale-[1.02]
+             cursor-pointer">
               <figure>
                 <img
                   className="h-96 w-full object-cover p-5 rounded-4xl"
@@ -45,7 +47,7 @@ const PlantsPage = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title text-3xl text-green-800 block m-auto">
+                <h2 className="card-title text-3xl  text-green-800 block m-auto">
                   {plant.plantName}
                 </h2>
                 <div className="text-base text-green-700 text-center">
