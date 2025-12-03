@@ -13,12 +13,12 @@ const PlantDetails = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
-  // Redirect if not authenticated
-  useEffect(() => {
-    if (!authLoading && !user) {
-      navigate('/login', { state: { from: `/plantdetails/${plantId}` } });
-    }
-  }, [authLoading, user, navigate, plantId]);
+  // // Redirect if not authenticated
+  // useEffect(() => {
+  //   if (!authLoading && !user) {
+  //     navigate('/login', { state: { from: `/plantdetails/${plantId}` } });
+  //   }
+  // }, [authLoading, user, navigate, plantId]);
 
   // Fetch plant data
   useEffect(() => {
