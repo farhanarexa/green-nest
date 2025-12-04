@@ -112,8 +112,7 @@ const Contact = () => {
                                 className="input input-bordered w-full bg-green-200 border-green-400 text-black placeholder:text-gray-500"
                                 placeholder="Your Last Name"
                                 defaultValue={user ? getLastName() : ''}
-                                disabled={!!user}
-                                required
+                                
                             />
                         </div>
                     </div>
@@ -121,6 +120,8 @@ const Contact = () => {
                         <label className="label text-green-700">
                             <span className="label-text font-bold">Email</span>
                         </label>
+             
+             
                         <input
                             type="email"
                             name="email"
