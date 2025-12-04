@@ -41,10 +41,10 @@ const Navbar = () => {
   // Clean fallback avatar URL (no extra spaces!)
   const getAvatarUrl = () => {
     if (user?.photoURL) return user.photoURL;
-    if (user?.email) return `https://i.pravatar.cc/150?u=${encodeURIComponent(user.email)}`;
-    return 'https://i.pravatar.cc/150?u=default';
+    return 'https://i.pinimg.com/736x/9e/83/75/9e837528f01cf3f42119c5aeeed1b336.jpg';
   };
 
+  
   return (
     <div className="navbar bg-green-200 px-4 sm:px-6 md:px-10 lg:px-20 shadow-sm sticky top-0 z-50">
       <div className="navbar-start">
