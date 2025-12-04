@@ -43,7 +43,7 @@ const HeroSection = () => {
               className="flex items-center justify-center text-center bg-cover bg-center h-full w-full"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
-              <div className="absolute inset-0 bg-green-900 opacity-70"></div>
+              <div className="absolute inset-0 bg-black opacity-60"></div>
 
               <div className="relative z-10 flex items-center justify-center h-full w-full">
                 <h1 className="text-3xl font-semibold w-full max-w-3xl text-white drop-shadow-md md:text-5xl px-8">

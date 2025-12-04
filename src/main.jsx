@@ -12,6 +12,7 @@ import MyProfilePage from './Components/MyProfilePage/MyProfilePage.jsx';
 import PlantsPage from './Components/PlantsPage/PlantsPage.jsx';
 import HomePage from './Components/HomePage/HomePage.jsx';
 import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
+import Contact from './Components/Contact/Contact.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         Component: MyProfilePage,
+      },
+      {
+        path: "contact",
+        Component: Contact,
       },
       {
         path: "login",
